@@ -1,0 +1,56 @@
+
+<!-- * Bloque de directivas de atributo -->
+<!-- corchetes signigica que el valor que sera asociado será una variable o algo de javascript -->
+<!-- si no tiene corchetes, es por que el codigo estara en duro -->
+
+<!-- NgStyle es una directiva de angular -->
+<p [ngStyle]="{ color: 'tomato', borderBottom: '1px solid red', }">Lista de elementos:</p>
+
+<p ngClass="undelined">Aquí vamos a iterar sobre una lista y mostrar varios elementos</p>
+<p [ngClass]="{undelined: true, big: false}">una clase si y otra <noscript></noscript></p>
+<p [ngClass]="['undelined','big']">Text con estilo</p>
+
+
+
+<!-- *Bloque de directivas estructurales -->
+<!-- Son las que se usan cuando quieras que el html sea dinamico -->
+
+<!-- si cargando es true, cargar eso -->
+<p *ngIf="cargando">
+    Cargando lista de elementos...
+</p>
+
+<ng-container *ngIf="!cargando;else templateName"  >
+    <p>TODO LISTO</p>
+</ng-container>
+<ng-template #templateName>
+    <p>Cargando...</p>
+    <p>Espere</p>
+</ng-template>
+
+<!-- Bloque mas importate -->
+<!-- !Uso de ngFOR -->
+<div *ngFor="let item of listaElementos; let i = index; let par = even; let impar = odd">
+    <!-- Ámbito de FOR donde teenemos accesso a productos -->
+    <p>{{item}}</p>
+</div>
+
+<!-- Bloque para enteder ngSwitch -->
+
+<div [ngSwitch]="option">
+    <div *ngSwitchCase="1">output</div>
+    <div *ngSwitchCase="2">output2</div>
+    <div *ngSwitchCase="3">output3</div>
+    <div *ngSwitchCase="4">output4</div>
+    <div *ngSwitchCase="5">output5</div>
+
+    <div *ngSwitchDefault>null</div>
+</div>
+
+<div>
+    <input type="radio" name="opcion" (click)="switch(1)" /> Opcion 1
+    <input type="radio" name="opcion" (click)="switch(2)" /> Opcion 2
+    <input type="radio" name="opcion" (click)="switch(3)" /> Opcion 3
+    <input type="radio" name="opcion" (click)="switch(4)" /> Opcion 4
+    <input type="radio" name="opcion" (click)="switch(0)" /> Opcion 4
+</div>

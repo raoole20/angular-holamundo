@@ -1,0 +1,13 @@
+<h1>Hola {{ nombre }}!</h1>
+
+<h3 id="usuario" [innerText]="nombre">
+    <!-- No indicamos nada en la etiqueta, si no que el valor viene definodo por la propiedad -->
+</h3>
+<h5>hola uqe tal</h5>
+
+<button id="emit-alierta" (click)='emitirEventoAlpadre()'>mostrar alerta</button>
+
+
+<!-- Este modulo es accesible por que esta exportado en el modulo de lista, entonces, al importar el modulo list, y a su vez es lista basica esta exportado
+hace que tambien tengamos acceso a ese componente -->
+<app-lista-basica></app-lista-basica>

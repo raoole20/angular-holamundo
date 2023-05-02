@@ -1,0 +1,8 @@
+.undelined {
+    color: firebrick;
+    text-decoration: underline; 
+}
+
+.big {
+    font-size: 2.5em;
+}
