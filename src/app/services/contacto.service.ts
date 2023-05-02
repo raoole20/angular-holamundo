@@ -15,7 +15,15 @@ export class ContactoService {
     return Promise.resolve(CONTACTOS)
   }
 
-  obtenerContactoPorId(id: number): Promise<IContacto | undefined> {
-    return Promise.resolve(CONTACTOS.find(contacto => contacto.id === id))
+  obtenerContactoPorId(id: number): Observable<IContacto | undefined> {
+
+    let observable = new Observable<IContacto>(observer => {
+      setTimeout(() => {
+        observer.next(CONTACTOS.find(contacto => contacto.id === id)); // Emitir un valor a todo componente suscriptos
+        observer.complete(); // No emitimos más eventos
+      }, 2000);
+    });
+
+    return observable
   }
 }
